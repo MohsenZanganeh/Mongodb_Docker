@@ -34,7 +34,6 @@ class Product_Reposiroty extends Generic_Repository {
   async findWithCompany(Condition={},company_name = null) {
     try {
       delete Condition.company_name
-      console.log("company_name:",company_name)
       var result = company_name == null ?
        await this.model.find(Condition) :
        await this.model.find(Condition)

@@ -1,5 +1,5 @@
 let mongoose=require("mongoose")
-mongoose.connect("mongodb://localhost/Company_Product",{
+mongoose.connect("mongodb://mongo/Company_Product",{
   poolSize:1,
   useFindAndModify:true
 })
