@@ -3,6 +3,12 @@ let { message,status } = require("../../../util/util")
 class Services_Product {
     async Insert_Product(Data) {
         try {
+            let check_exist_Company = await Utility_Context.Company().find({_id:Data.Company})
+
+            if (message.HaveError(check_exist_Company)) {
+                return status.RESOURCE_EXIST;
+            }
+
             let check_exist_Product = await Utility_Context.Product().Is_Exist_Product(Data)
 
             if (message.HaveError(check_exist_Product)) {

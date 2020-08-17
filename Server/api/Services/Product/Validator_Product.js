@@ -3,8 +3,8 @@ let { message } = require("../../../util/util")
 class Validator_Product {
     async Insert_Product(req, res) {
         const Insert_Product_schema = joi.object({
-            Company: joi.string().empty(),
-            name: joi.string().empty()
+            Company: joi.string().empty().required(),
+            name: joi.string().empty().required()
         })
 
         let result = this.Validate(req, res, Insert_Product_schema)
@@ -12,9 +12,9 @@ class Validator_Product {
     }
     async Update_Product(req, res) {
         const Update_Product_schema = joi.object({
-            id:joi.string().empty(),
-            name: joi.string(),
-            Company: joi.string()
+            id:joi.string().empty().required(),
+            name: joi.string().empty(),
+            Company: joi.string().empty()
         })
 
         let result = this.Validate(req, res, Update_Product_schema)
@@ -22,7 +22,7 @@ class Validator_Product {
     }
     async Delete_Product(req, res) {
         const Delete_Product_schema = joi.object({
-            id: joi.string().empty()
+            id: joi.string().empty().required()
         })
 
         let result = this.Validate(req, res, Delete_Product_schema)
@@ -30,8 +30,8 @@ class Validator_Product {
     }
     async findAll_Product(req, res) {
         const findAll_Product_schema = joi.object({
-            name: joi.string(),
-            company_name: joi.string()
+            name: joi.string().empty(),
+            company_name: joi.string().empty()
         })
 
         let result = this.Validate(req, res, findAll_Product_schema)

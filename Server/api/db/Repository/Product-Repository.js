@@ -35,12 +35,11 @@ class Product_Reposiroty extends Generic_Repository {
     try {
       delete Condition.company_name
       var result = company_name == null ?
-       await this.model.find(Condition) :
+       await this.model.find(Condition).populate({path:'Company'}) :
        await this.model.find(Condition)
          .populate({ 
            path: 'Company', 
-           match: {company_name:company_name},
-           select: "company_name"
+           match: {company_name:company_name}
          }).exec();
 
       if (result.length > 0) {

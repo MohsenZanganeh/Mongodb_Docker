@@ -4,8 +4,8 @@ services:
           container_name: company_product
           restart: always
           build: .
-          ports: 
-            - '3000:3000'
+          ports:
+            - "${PORT}:${PORT}"
           links: 
             - mongo
     mongo:
